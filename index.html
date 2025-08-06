@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Warfarin Dose Calculator</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>โปรแกรมคำนวณขนาดยา Warfarin</h1>
+    <form id="doseForm">
+      <label>ค่า INR ล่าสุด:</label>
+      <input type="number" id="inr" step="0.1" required />
+
+      <label>ขนาดยาที่ใช้เดิม (mg/สัปดาห์):</label>
+      <input type="number" id="currentDose" step="0.1" required />
+
+      <label>มีเลือดออกหรือไม่:</label>
+      <select id="bleeding">
+        <option value="no">ไม่มี</option>
+        <option value="yes">มี</option>
+      </select>
+
+      <label>เลือกขนาดเม็ดยา:</label>
+      <select id="pillType">
+        <option value="both" selected>2 mg + 3 mg</option>
+        <option value="2only">เฉพาะ 2 mg</option>
+        <option value="3only">เฉพาะ 3 mg</option>
+      </select>
+
+      <label>เลือกวันหยุดยา:</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" class="skip-day" value="จันทร์" /> จันทร์</label>
+        <label><input type="checkbox" class="skip-day" value="อังคาร" /> อังคาร</label>
+        <label><input type="checkbox" class="skip-day" value="พุธ" /> พุธ</label>
+        <label><input type="checkbox" class="skip-day" value="พฤหัสบดี" /> พฤหัสบดี</label>
+        <label><input type="checkbox" class="skip-day" value="ศุกร์" /> ศุกร์</label>
+        <label><input type="checkbox" class="skip-day" value="เสาร์" /> เสาร์</label>
+        <label><input type="checkbox" class="skip-day" value="อาทิตย์" /> อาทิตย์</label>
+      </div>
+
+      <button type="submit">คำนวณ</button>
+      <button type="button" onclick="window.print()">พิมพ์ PDF</button>
+    </form>
+    <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
